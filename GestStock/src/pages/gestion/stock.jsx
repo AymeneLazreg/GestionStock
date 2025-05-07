@@ -2,7 +2,10 @@ import { Link } from "react-router-dom"
 import Header from "../../components/Header"
 import BarNavigation from "../../components/BarNavigation"
 
+
+
 function AccueilGestion() {
+  
   const menuItems = [
     { title: "Gestion des produits", path: "/liste-produits" },
     { title: "Historique", path: "/historique-stock" },

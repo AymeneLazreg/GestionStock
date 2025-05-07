@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import BarNavigation from "../../components/BarNavigation";
 import axios from "axios";
@@ -10,8 +10,7 @@ function HistoriqueStock() {
   const [historique, setHistorique] = useState([]);
   const [dateDebut, setDateDebut] = useState("");
   const [dateFin, setDateFin] = useState("");
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const [filtreUtilisateur, setFiltreUtilisateur] = useState("");
   const [filtreProduit, setFiltreProduit] = useState("");
@@ -35,6 +34,12 @@ function HistoriqueStock() {
   };
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("veuillez vous connecter.");
+      navigate("/login");
+      return;
+    }
     fetchHistorique();
   }, []);
 
@@ -42,9 +47,9 @@ function HistoriqueStock() {
     fetchHistorique();
     setPage(1);
   };
-  
+
   const handleBack = () => {
-    navigate(-1); // 👈 revient à la page précédente dans l'historique
+    navigate(-1);
   };
 
   const historiqueFiltré = historique.filter((item) => {
@@ -114,24 +119,55 @@ function HistoriqueStock() {
           background-color: #007bff;
           color: white;
         }
+
+        @media (max-width: 640px) {
+          .filter-container {
+            flex-direction: column !important;
+            gap: 12px;
+          }
+
+          .filter-group {
+            width: 100%;
+          }
+
+          .text-input,
+          .select-input,
+          .date-input {
+            width: 100%;
+          }
+
+          .action-buttons {
+            flex-direction: column;
+            gap: 12px;
+          }
+
+          .historique-header,
+          .historique-row {
+            font-size: 14px;
+          }
+
+          .historique-container {
+            overflow-x: auto;
+          }
+        }
       `}</style>
 
-      <div className="body">
-        <div className="filter-container">
-          <div className="filter-group">
+      <div className="body max-w-screen-xl mx-auto px-4">
+        <div className="filter-container flex flex-wrap gap-4 justify-between mb-4">
+          <div className="filter-group flex flex-col w-full sm:w-auto">
             <label>Du:</label>
             <input
               type="date"
-              className="date-input"
+              className="date-input w-full sm:w-48"
               value={dateDebut}
               onChange={(e) => setDateDebut(e.target.value)}
             />
           </div>
-          <div className="filter-group">
+          <div className="filter-group flex flex-col w-full sm:w-auto">
             <label>Au:</label>
             <input
               type="date"
-              className="date-input"
+              className="date-input w-full sm:w-48"
               value={dateFin}
               onChange={(e) => setDateFin(e.target.value)}
             />
@@ -141,38 +177,38 @@ function HistoriqueStock() {
           </button>
         </div>
 
-        <div className="filter-container">
-          <div className="filter-group">
+        <div className="filter-container flex flex-wrap gap-4 justify-between mb-4">
+          <div className="filter-group flex flex-col w-full sm:w-auto">
             <label>Produit:</label>
             <input
               type="text"
-              className="text-input"
+              className="text-input w-full sm:w-48"
               value={filtreProduit}
               onChange={(e) => setFiltreProduit(e.target.value)}
               placeholder="Nom du produit"
             />
           </div>
 
-          <div className="filter-group">
+          <div className="filter-group flex flex-col w-full sm:w-auto">
             <label>Utilisateur:</label>
             <input
               type="text"
-              className="text-input"
+              className="text-input w-full sm:w-48"
               value={filtreUtilisateur}
               onChange={(e) => setFiltreUtilisateur(e.target.value)}
               placeholder="Nom de l'utilisateur"
             />
           </div>
 
-          <div className="filter-group">
+          <div className="filter-group flex flex-col w-full sm:w-auto">
             <label>Type:</label>
             <select
-              className="select-input"
+              className="select-input w-full sm:w-48"
               value={filtreAction}
               onChange={(e) => setFiltreAction(e.target.value)}
-              style={{ 
+              style={{
                 backgroundColor: "#ffffff",
-               }}
+              }}
             >
               <option value="">Tous</option>
               <option value="Entrée">Entrée</option>
@@ -181,13 +217,13 @@ function HistoriqueStock() {
           </div>
         </div>
 
-        <div className="historique-container">
-          <div className="historique-header">
-            <div className="historique-cell">Date</div>
-            <div className="historique-cell">Produit</div>
-            <div className="historique-cell">Action</div>
-            <div className="historique-cell">Quantité</div>
-            <div className="historique-cell">Utilisateur</div>
+        <div className="historique-container overflow-x-auto mt-4">
+          <div className="historique-header flex justify-between font-bold bg-gray-200 px-4 py-2">
+            <div className="historique-cell w-1/5">Date</div>
+            <div className="historique-cell w-1/5">Produit</div>
+            <div className="historique-cell w-1/5">Action</div>
+            <div className="historique-cell w-1/5">Quantité</div>
+            <div className="historique-cell w-1/5">Utilisateur</div>
           </div>
 
           {historiquePagine.map((item, index) => {
@@ -196,14 +232,14 @@ function HistoriqueStock() {
             const quantityClass = isPositive ? "positive" : "negative";
 
             return (
-              <div key={index} className="historique-row">
-                <div className="historique-cell">{item.date}</div>
-                <div className="historique-cell">{item.produit}</div>
-                <div className="historique-cell">{item.action}</div>
-                <div className="historique-cell">
+              <div key={index} className="historique-row flex justify-between border-b px-4 py-2">
+                <div className="historique-cell w-1/5">{item.date}</div>
+                <div className="historique-cell w-1/5">{item.produit}</div>
+                <div className="historique-cell w-1/5">{item.action}</div>
+                <div className="historique-cell w-1/5">
                   <span className={quantityClass}>{quantityText}</span>
                 </div>
-                <div className="historique-cell">
+                <div className="historique-cell w-1/5">
                   {item.utilisateur?.nom || "—"}
                 </div>
               </div>
@@ -211,7 +247,6 @@ function HistoriqueStock() {
           })}
         </div>
 
-        {/* Pagination style cartes */}
         <div className="pagination-grid">
           {[...Array(totalPages)].map((_, i) => (
             <button
@@ -225,13 +260,13 @@ function HistoriqueStock() {
         </div>
       </div>
 
-      <div className="action-buttons">
+      <div className="action-buttons flex gap-3 mt-4 px-4">
         <button className="btn" onClick={exportPDF}>
           Exporter (PDF)
         </button>
         <button onClick={handleBack} className="btn">
-      Retour
-    </button>
+          Retour
+        </button>
       </div>
 
       <BarNavigation />

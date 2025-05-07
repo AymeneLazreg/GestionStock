@@ -81,7 +81,6 @@ function StatStock() {
         </div>
 
         {/* Graphiques */}
-        <div className="stat-row">
           {/* 📈 Courbe des ventes */}
           <section className="bg-white rounded-xl shadow p-4">
             <h2 className="text-lg font-bold mb-2">📊 Courbe des ventes</h2>
@@ -95,9 +94,10 @@ function StatStock() {
               </LineChart>
             </ResponsiveContainer>
           </section>
+         
 
           {/* 🏆 Top produits */}
-          <section className="bg-white rounded-xl shadow p-4">
+          <section className="bg-white rounded-xl shadow p-4 mt-4">
             <h2 className="text-lg font-bold mb-2">🏆 Top 5 des produits vendus</h2>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={produitsTop} layout="vertical">
@@ -112,8 +112,8 @@ function StatStock() {
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
+
           </section>
-        </div>
 
         {/* Produits en alerte */}
         <section className="bg-white rounded-xl shadow p-4 stat-alertes">

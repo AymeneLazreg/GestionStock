@@ -12,8 +12,17 @@ function DetailsCommandeClient() {
   const [loading, setLoading] = useState(true);
   const [selectedProduit, setSelectedProduit] = useState(null);
   const [quantite, setQuantite] = useState(1);
+  const [recherche, setRecherche] = useState("");
+
 
   useEffect(() => {
+
+    const token = localStorage.getItem("token");
+  if (!token) {
+    alert("veuillez vous connecter.");
+    navigate("/login");
+    return;
+  }
     const charger = async () => {
       try {
         const [pRes, cRes] = await Promise.all([
@@ -98,7 +107,7 @@ function DetailsCommandeClient() {
 
         <div className="grid grid-cols-1 gap-4 mb-8">
           {lignes.map(l => (
-            <div key={l.id} className="bg-white p-4 rounded shadow">
+            <div key={l.id} className="bg-white p-4 rounded shadow max-w-[300px]">
               <h3 className="font-semibold">{l.produitInfo?.nom}</h3>
               <p>Quantité : {l.quantite}</p>
               <p>PU : {l.prix_unitaire}€</p>
@@ -110,26 +119,37 @@ function DetailsCommandeClient() {
         {commande.statut !== "Validée" && (
           <>
             <h3 className="text-lg font-bold mb-2">Produits disponibles</h3>
-            <div className="overflow-x-auto mb-6">
+            <input
+  type="text"
+  placeholder="Rechercher un produit..."
+  value={recherche}
+  onChange={(e) => setRecherche(e.target.value)}
+  className="w-full p-2 mb-4 border rounded max-w-sm"
+/>
+
+            <div className="overflow-x-auto mb-6 max-w-[800px]">
               <div className="flex gap-4">
-                {produits.map(prod => (
-                  <div
-                    key={prod.id}
-                    onClick={() => setSelectedProduit(prod)}
-                    className="min-w-[160px] cursor-pointer bg-white rounded shadow p-3"
-                  >
-                    {prod.image && (
-                      <img
-                        src={`http://localhost:8832/uploads/${prod.image}`}
-                        alt={prod.nom}
-                        className="w-full h-28 object-cover rounded mb-2"
-                      />
-                    )}
-                    <h4 className="font-semibold">{prod.nom}</h4>
-                    <p>Prix : {prod.prix} €</p>
-                    <p>Stock : {prod.quantite_stock}</p>
-                  </div>
-                ))}
+              {produits
+  .filter(p => p.nom.toLowerCase().includes(recherche.toLowerCase()))
+  .map(prod => (
+    <div
+      key={prod.id}
+      onClick={() => setSelectedProduit(prod)}
+      className="min-w-[160px] cursor-pointer bg-white rounded shadow p-3"
+    >
+      {prod.image && (
+        <img
+          src={`http://localhost:8832/uploads/${prod.image}`}
+          alt={prod.nom}
+          className="w-full h-28 object-cover rounded mb-2 max-h-[200px] max-w-[200px]"
+        />
+      )}
+      <h4 className="font-semibold">{prod.nom}</h4>
+      <p>Prix : {prod.prix} €</p>
+      <p>Stock : {prod.quantite_stock}</p>
+    </div>
+))}
+
               </div>
             </div>
 

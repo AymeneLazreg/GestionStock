@@ -9,6 +9,12 @@ function CommandesClient() {
   const [produitsDispo, setProduitsDispo] = useState([]);
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("veuillez vous connecter.");
+      navigate("/login");
+      return;
+    }
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("token");
@@ -84,7 +90,7 @@ function CommandesClient() {
       <div className="p-4">
         <h2 className="text-lg mb-4">Mes commandes</h2>
 
-        <div className="grid grid-cols-1 gap-4 mb-6">
+        <div className="grid grid-cols-1 gap-4 mb-6 max-w-[300px]">
           {commandes.map(cmd => (
             <div
               key={cmd.id}
@@ -117,14 +123,14 @@ function CommandesClient() {
         {/* ✅ Produits disponibles avec scroll horizontal */}
         <h3 className="text-lg mt-10 mb-2 font-bold">Produits disponibles</h3>
         <div className="overflow-x-auto">
-          <div className="flex gap-4 pb-4">
+          <div className="flex gap-4 pb-4 max-w-[800px]">
             {produitsDispo.map((prod, index) => (
-              <div key={index} className="min-w-[200px] bg-white p-4 rounded shadow flex-shrink-0">
+              <div key={index} className="min-w-[200px] bg-white p-4 rounded shadow flex-shrink-0 ">
                 {prod.image && (
                   <img
                     src={`http://localhost:8832/uploads/${prod.image}`}
                     alt={prod.nom}
-                    className="w-full h-32 object-cover rounded mb-2"
+                    className="w-full h-32 object-cover rounded mb-2 max-h-[200px] max-w-[200px]"  
                   />
                 )}
                 <h4 className="font-semibold">{prod.nom}</h4>

@@ -13,10 +13,8 @@ function DetailsCommandeFournisseur() {
   const [commande, setCommande] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Récupère le token JWT
   const getToken = () => localStorage.getItem("token");
 
-  // Charge la commande + produits + lignes
   useEffect(() => {
     if (!id) return;
     const token = getToken();
@@ -56,7 +54,6 @@ function DetailsCommandeFournisseur() {
     charger();
   }, [id, navigate]);
 
-  // Récupère à nouveau les lignes (après ajout)
   const reloadLignes = async () => {
     const token = getToken();
     const res = await fetch(
@@ -120,7 +117,6 @@ function DetailsCommandeFournisseur() {
       return navigate("/login");
     }
 
-    // Prépare un payload minimal pour le backend
     const payloadLignes = lignes.map(l => ({
       produit: l.produit,
       quantite: l.quantité,
@@ -157,25 +153,24 @@ function DetailsCommandeFournisseur() {
     }
   };
 
-  if (loading) return <div>Chargement…</div>;
-  if (!commande) return <div>Commande introuvable</div>;
+  if (loading) return <div className="p-4">Chargement…</div>;
+  if (!commande) return <div className="p-4">Commande introuvable</div>;
 
   return (
     <>
       <Header title={`Commande #${commande.id}`} />
-      <div className="p-4">
+      <div className="p-4 max-w-screen-sm mx-auto">
         <div className="mb-4">
           <h2 className="text-xl font-bold">
             Fournisseur : {commande.fournisseurInfo?.nom}
           </h2>
           <p>
-            Date :{" "}
-            {new Date(commande.date_commande).toLocaleDateString("fr-FR")}
+            Date : {new Date(commande.date_commande).toLocaleDateString("fr-FR")}
           </p>
           <p>Statut : {commande.statut}</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 mb-8">
+        <div className="grid gap-4 mb-8 sm:grid-cols-2">
           {lignes.map(l => (
             <div key={l.id} className="bg-white p-4 rounded shadow">
               <h3 className="font-semibold">{l.produitInfo?.nom}</h3>
@@ -192,8 +187,7 @@ function DetailsCommandeFournisseur() {
           <select
             value={produitChoisi}
             onChange={e => setProduitChoisi(e.target.value)}
-            className="p-2 border rounded mb-4 w-full"
-            style={{ color: produitChoisi ? "black" : "white" }}
+            className="p-2 border rounded mb-4 w-full text-black bg-white"
           >
             <option value="">Choisir un produit</option>
             {produits.map(p => (
@@ -211,33 +205,36 @@ function DetailsCommandeFournisseur() {
             className="p-2 border rounded mb-4 w-full"
           />
 
-          <button
-            onClick={ajouterProduit}
-            disabled={!produitChoisi}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50"
-          >
-            Ajouter
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={ajouterProduit}
+              disabled={!produitChoisi}
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50"
+            >
+              Ajouter
+            </button>
 
-          <button
-            onClick={finaliserCommande}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 ml-4"
-          >
-            Finaliser la commande
-          </button>
+            <button
+              onClick={finaliserCommande}
+              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            >
+              Finaliser la commande
+            </button>
 
-          <button
-            onClick={() => window.history.back()}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-4 mt-4"
-          >
-            Retour
-          </button>
-          <button
-            onClick={supprimerCommande}
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 ml-4 mt-4"
-          >
-            Supprimer la commande
-          </button>
+            <button
+              onClick={() => window.history.back()}
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Retour
+            </button>
+
+            <button
+              onClick={supprimerCommande}
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            >
+              Supprimer la commande
+            </button>
+          </div>
         </div>
       </div>
       <BarNavigation />

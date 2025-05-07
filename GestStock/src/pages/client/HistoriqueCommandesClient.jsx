@@ -52,6 +52,8 @@ export default function HistoriqueCommandesClient() {
     }
   };
   useEffect(() => {
+
+  
     const token = localStorage.getItem("token");
     if (token) {
       try {
@@ -61,6 +63,11 @@ export default function HistoriqueCommandesClient() {
       } catch (e) {
         console.error("Impossible de décoder le token :", e);
       }
+    }
+    if (!token) {
+      alert("veuillez vous connecter.");
+      navigate("/login");
+      return;
     }
 
     const payloadBase64 = token.split('.')[1];

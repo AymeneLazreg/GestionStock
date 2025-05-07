@@ -12,7 +12,7 @@
  Target Server Version : 150008 (150008)
  File Encoding         : 65001
 
- Date: 04/05/2025 21:10:59
+ Date: 07/05/2025 14:21:44
 */
 
 
@@ -147,21 +147,6 @@ START 1
 CACHE 1;
 
 -- ----------------------------
--- Table structure for CartonProduit
--- ----------------------------
-DROP TABLE IF EXISTS "public"."CartonProduit";
-CREATE TABLE "public"."CartonProduit" (
-  "id_carton" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "date_expiration" date NOT NULL,
-  "quantite" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
-)
-;
-
--- ----------------------------
--- Records of CartonProduit
--- ----------------------------
-
--- ----------------------------
 -- Table structure for categorie
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."categorie";
@@ -200,23 +185,6 @@ INSERT INTO "public"."categorie" VALUES (23, 'Snacks & apéritifs', 'Chips, crac
 INSERT INTO "public"."categorie" VALUES (22, 'Produits bio', 'Aliments issus de l’agriculture biologique');
 
 -- ----------------------------
--- Table structure for client
--- ----------------------------
-DROP TABLE IF EXISTS "public"."client";
-CREATE TABLE "public"."client" (
-  "id" int4 NOT NULL,
-  "nom" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "email" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "telephone" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-  "adresse" varchar(255) COLLATE "pg_catalog"."default" NOT NULL
-)
-;
-
--- ----------------------------
--- Records of client
--- ----------------------------
-
--- ----------------------------
 -- Table structure for commandes_client
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."commandes_client";
@@ -233,15 +201,32 @@ CREATE TABLE "public"."commandes_client" (
 -- Records of commandes_client
 -- ----------------------------
 INSERT INTO "public"."commandes_client" VALUES (90, 16, '2025-05-04', 'Validée', 8);
+INSERT INTO "public"."commandes_client" VALUES (87, 5, '2025-05-04', 'Validée', 2);
+INSERT INTO "public"."commandes_client" VALUES (91, 19, '2025-05-05', 'Validée', 54.16);
+INSERT INTO "public"."commandes_client" VALUES (92, 19, '2025-05-05', 'En cours', 0);
+INSERT INTO "public"."commandes_client" VALUES (93, 20, '2025-05-06', 'Validée', 3);
+INSERT INTO "public"."commandes_client" VALUES (95, 20, '2025-05-06', 'En cours', 0);
+INSERT INTO "public"."commandes_client" VALUES (94, 20, '2025-05-06', 'En cours', 56);
+INSERT INTO "public"."commandes_client" VALUES (96, 21, '2025-05-06', 'En Attente', 0);
+INSERT INTO "public"."commandes_client" VALUES (97, 22, '2025-05-06', 'En Attente', 2);
+INSERT INTO "public"."commandes_client" VALUES (100, 21, '2025-05-06', 'En Attente', 0);
+INSERT INTO "public"."commandes_client" VALUES (99, 22, '2025-05-06', 'En Attente', 2.8);
+INSERT INTO "public"."commandes_client" VALUES (98, 21, '2025-05-06', 'Validée', 0);
+INSERT INTO "public"."commandes_client" VALUES (101, 22, '2025-05-06', 'En cours', 0);
 INSERT INTO "public"."commandes_client" VALUES (79, 6, '2025-05-04', 'En cours', 0);
 INSERT INTO "public"."commandes_client" VALUES (80, 6, '2025-05-04', 'En cours', 0);
 INSERT INTO "public"."commandes_client" VALUES (83, 8, '2025-05-04', 'Validée', 30);
+INSERT INTO "public"."commandes_client" VALUES (102, 21, '2025-05-06', 'Validée', 40);
 INSERT INTO "public"."commandes_client" VALUES (84, 8, '2025-05-04', 'Validée', 2);
 INSERT INTO "public"."commandes_client" VALUES (81, 5, '2025-05-04', 'En Attente', 0);
-INSERT INTO "public"."commandes_client" VALUES (87, 5, '2025-05-04', 'En Attente', 2);
+INSERT INTO "public"."commandes_client" VALUES (103, 20, '2025-05-06', 'Validée', 42);
+INSERT INTO "public"."commandes_client" VALUES (104, 20, '2025-05-06', 'En cours', 0);
 INSERT INTO "public"."commandes_client" VALUES (88, 15, '2025-05-04', 'En Attente', 0);
+INSERT INTO "public"."commandes_client" VALUES (105, 20, '2025-05-06', 'En Attente', 0);
 INSERT INTO "public"."commandes_client" VALUES (85, 8, '2025-05-04', 'Validée', 9);
+INSERT INTO "public"."commandes_client" VALUES (106, 20, '2025-05-06', 'En cours', 0);
 INSERT INTO "public"."commandes_client" VALUES (89, 16, '2025-05-04', 'Validée', 6);
+INSERT INTO "public"."commandes_client" VALUES (107, 12, '2025-05-07', 'Validée', 123453);
 
 -- ----------------------------
 -- Table structure for commandes_fournisseur
@@ -261,23 +246,9 @@ CREATE TABLE "public"."commandes_fournisseur" (
 -- Records of commandes_fournisseur
 -- ----------------------------
 INSERT INTO "public"."commandes_fournisseur" VALUES (47, '2025-05-04', 'Validée', '2025-05-04 18:50:34.731+00', 300, 1);
-
--- ----------------------------
--- Table structure for facture
--- ----------------------------
-DROP TABLE IF EXISTS "public"."facture";
-CREATE TABLE "public"."facture" (
-  "id" int4 NOT NULL,
-  "date" date,
-  "montant_totale" varchar(255) COLLATE "pg_catalog"."default",
-  "statut" varchar(255) COLLATE "pg_catalog"."default",
-  "commande_client" int4
-)
-;
-
--- ----------------------------
--- Records of facture
--- ----------------------------
+INSERT INTO "public"."commandes_fournisseur" VALUES (49, '2025-05-05', 'Validée', '2025-05-05 13:19:35.159+00', 10, 1);
+INSERT INTO "public"."commandes_fournisseur" VALUES (54, '2025-05-07', 'En Attente', NULL, 1, 1);
+INSERT INTO "public"."commandes_fournisseur" VALUES (55, '2025-05-07', 'En Attente', NULL, 0, 1);
 
 -- ----------------------------
 -- Table structure for fournisseur
@@ -295,7 +266,7 @@ CREATE TABLE "public"."fournisseur" (
 -- ----------------------------
 -- Records of fournisseur
 -- ----------------------------
-INSERT INTO "public"."fournisseur" VALUES (1, 'AZERT', 'ZERTY', 'ZERTy', '34567');
+INSERT INTO "public"."fournisseur" VALUES (1, 'METRO AG', 'Düsseldorf, Allemagne', ' creditorrelations@metro.de', '+49 211 6886 1904');
 
 -- ----------------------------
 -- Table structure for lignes_commande_client
@@ -321,6 +292,17 @@ INSERT INTO "public"."lignes_commande_client" VALUES (87, 85, 22, 1, 9, '2025-05
 INSERT INTO "public"."lignes_commande_client" VALUES (88, 87, 8, 1, 2, '2025-05-04 17:34:06.234', '2025-05-04 17:34:06.234');
 INSERT INTO "public"."lignes_commande_client" VALUES (89, 89, 4, 3, 2, '2025-05-04 18:32:23.836', '2025-05-04 18:32:23.836');
 INSERT INTO "public"."lignes_commande_client" VALUES (90, 90, 12, 2, 4, '2025-05-04 18:36:43.631', '2025-05-04 18:36:43.631');
+INSERT INTO "public"."lignes_commande_client" VALUES (91, 91, 18, 9, 1.04, '2025-05-05 16:39:43.635', '2025-05-05 16:39:43.635');
+INSERT INTO "public"."lignes_commande_client" VALUES (92, 91, 27, 1, 2.8, '2025-05-05 16:39:51.352', '2025-05-05 16:39:51.352');
+INSERT INTO "public"."lignes_commande_client" VALUES (93, 91, 21, 21, 2, '2025-05-05 16:40:08.789', '2025-05-05 16:40:08.789');
+INSERT INTO "public"."lignes_commande_client" VALUES (94, 93, 14, 3, 1, '2025-05-06 13:17:06.666', '2025-05-06 13:17:06.666');
+INSERT INTO "public"."lignes_commande_client" VALUES (95, 94, 29, 1, 56, '2025-05-06 15:23:52.709', '2025-05-06 15:23:52.709');
+INSERT INTO "public"."lignes_commande_client" VALUES (96, 97, 16, 1, 2, '2025-05-06 16:05:31.132', '2025-05-06 16:05:31.132');
+INSERT INTO "public"."lignes_commande_client" VALUES (97, 99, 27, 1, 2.8, '2025-05-06 16:06:13.051', '2025-05-06 16:06:13.051');
+INSERT INTO "public"."lignes_commande_client" VALUES (98, 102, 30, 1, 40, '2025-05-06 16:11:02.32', '2025-05-06 16:11:02.32');
+INSERT INTO "public"."lignes_commande_client" VALUES (99, 103, 27, 15, 2.8, '2025-05-06 16:38:15.919', '2025-05-06 16:38:15.919');
+INSERT INTO "public"."lignes_commande_client" VALUES (100, 107, 5, 1, 3, '2025-05-07 12:06:25.251', '2025-05-07 12:06:25.251');
+INSERT INTO "public"."lignes_commande_client" VALUES (101, 107, 6, 10, 12345, '2025-05-07 12:06:31.092', '2025-05-07 12:06:31.092');
 
 -- ----------------------------
 -- Table structure for lignes_commande_fournisseur
@@ -338,6 +320,9 @@ CREATE TABLE "public"."lignes_commande_fournisseur" (
 -- ----------------------------
 -- Records of lignes_commande_fournisseur
 -- ----------------------------
+INSERT INTO "public"."lignes_commande_fournisseur" VALUES (61, 14, 10, 1, 49);
+INSERT INTO "public"."lignes_commande_fournisseur" VALUES (62, 14, 10, 1, 49);
+INSERT INTO "public"."lignes_commande_fournisseur" VALUES (63, 15, 1, 1, 54);
 INSERT INTO "public"."lignes_commande_fournisseur" VALUES (58, 17, 100, 3, 47);
 INSERT INTO "public"."lignes_commande_fournisseur" VALUES (59, 17, 100, 3, 47);
 
@@ -364,24 +349,21 @@ INSERT INTO "public"."mouvement" VALUES (4, 'kiwi', 'Sortie', 3, '2025-05-04', 1
 INSERT INTO "public"."mouvement" VALUES (132, 'kiwi', 'Sortie', 3, '2025-05-04', 16);
 INSERT INTO "public"."mouvement" VALUES (133, 'dind', 'Sortie', 2, '2025-05-04', 16);
 INSERT INTO "public"."mouvement" VALUES (134, 'OZMOO', 'Entrée', 100, '2025-05-04', 5);
+INSERT INTO "public"."mouvement" VALUES (135, 'QQQQQQQ', 'Sortie', 1, '2025-05-05', 5);
+INSERT INTO "public"."mouvement" VALUES (136, 'ffffffff', 'Entrée', 9, '2025-05-05', 5);
+INSERT INTO "public"."mouvement" VALUES (137, 'candia', 'Entrée', 10, '2025-05-05', 5);
+INSERT INTO "public"."mouvement" VALUES (138, 'doritos', 'Sortie', 9, '2025-05-05', 19);
+INSERT INTO "public"."mouvement" VALUES (139, 'kinder bueno', 'Sortie', 21, '2025-05-05', 19);
+INSERT INTO "public"."mouvement" VALUES (140, 'RedBUll', 'Sortie', 1, '2025-05-05', 19);
+INSERT INTO "public"."mouvement" VALUES (141, 'Udjjd', 'Entrée', 40, '2025-05-05', 5);
+INSERT INTO "public"."mouvement" VALUES (142, 'candia', 'Sortie', 3, '2025-05-06', 20);
+INSERT INTO "public"."mouvement" VALUES (143, 'ffffffff', 'Entrée', 5, '2025-05-06', 5);
+INSERT INTO "public"."mouvement" VALUES (144, 'Coiffeuse', 'Entrée', 10, '2025-05-06', 5);
+INSERT INTO "public"."mouvement" VALUES (145, 'Coiffeuse', 'Sortie', 1, '2025-05-06', 21);
+INSERT INTO "public"."mouvement" VALUES (146, 'RedBUll', 'Sortie', 15, '2025-05-06', 20);
+INSERT INTO "public"."mouvement" VALUES (147, 'Patate', 'Sortie', 1, '2025-05-07', 12);
+INSERT INTO "public"."mouvement" VALUES (148, 'SDGFDF', 'Sortie', 10, '2025-05-07', 12);
 INSERT INTO "public"."mouvement" VALUES (22, 'fraises', 'Sortie', 1, '2025-05-04', 8);
-
--- ----------------------------
--- Table structure for paiement
--- ----------------------------
-DROP TABLE IF EXISTS "public"."paiement";
-CREATE TABLE "public"."paiement" (
-  "id" int4 NOT NULL,
-  "date_paiement" date,
-  "montant" float4,
-  "mode_paiement" varchar(255) COLLATE "pg_catalog"."default",
-  "facture" int4
-)
-;
-
--- ----------------------------
--- Records of paiement
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for produit
@@ -409,30 +391,33 @@ CACHE 1
 -- Records of produit
 -- ----------------------------
 INSERT INTO "public"."produit" VALUES (17, 'OZMOO', 'chocolat', 3, 105, 1, '', NULL);
+INSERT INTO "public"."produit" VALUES (8, 'QQQQQQQ', 'QQ', 2, 1, 1, '', NULL);
+INSERT INTO "public"."produit" VALUES (18, 'doritos', 'chips', 1.04, 0, 1, '', NULL);
+INSERT INTO "public"."produit" VALUES (21, 'kinder bueno', 'chocolat', 2, 0, 1, '', '1746332542743-5a8d4927-b245-4370-b14d-85defc5a6e37.png');
+INSERT INTO "public"."produit" VALUES (29, 'Udjjd', 'Jebdh', 56, 40, 3, '', '1746463378620-image.jpg');
+INSERT INTO "public"."produit" VALUES (14, 'candia', 'jus', 1, 7, 1, '', NULL);
+INSERT INTO "public"."produit" VALUES (15, 'ffffffff', 'fffffff', 1, 15, 1, '', NULL);
+INSERT INTO "public"."produit" VALUES (30, 'Coiffeuse', 'Coiffeuse', 40, 9, 14, '52672', '1746547783533-image.jpg');
+INSERT INTO "public"."produit" VALUES (27, 'RedBUll', 'Boisson energisante', 2.8, 29, 6, '8712100751370', '1746373596350-download.webp');
 INSERT INTO "public"."produit" VALUES (11, 'volvic', 'eau', 1, 0, 1, '', NULL);
+INSERT INTO "public"."produit" VALUES (99, 'Chips de pomme de terre', 'Pommes de terre, huile de tournesol, sel', 1.99, 50, 23, '1234567890123', 'https://images.openfoodfacts.org/images/products/123/456/789/0123/front_fr.400.jpg');
+INSERT INTO "public"."produit" VALUES (5, 'Patate', 'Patate douce', 3, 115, 3, '', NULL);
+INSERT INTO "public"."produit" VALUES (6, 'SDGFDF', 'é"''(-è', 12345, 230, 1, '3456789', NULL);
 INSERT INTO "public"."produit" VALUES (1, 'mayo', 'sauce', 2, 0, 1, '4000177023556', NULL);
-INSERT INTO "public"."produit" VALUES (15, 'ffffffff', 'fffffff', 1, 1, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (3, 'coco', 'fruits', 2, 0, 2, '', NULL);
 INSERT INTO "public"."produit" VALUES (2, 'lipton', 'boisson', 1.12, 7, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (19, 'popcorn', 'tatat', 2, 0, 1, '', '1746322924124-ex4_3.png');
-INSERT INTO "public"."produit" VALUES (14, 'candia', 'jus', 1, 0, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (13, 'prince', 'gateaux', 2.03, 15, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (16, 'bimo', 'gateau', 2, 11, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (7, 'Produit X', 'Description produit X', 34, 150, 1, '', NULL);
-INSERT INTO "public"."produit" VALUES (18, 'doritos', 'chips', 1.04, 9, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (25, 'eau', 'vitteol', 8, 4, 1, '', '1746369251820-Capture_d_____cran_du_2025-05-04_16-22-59.png');
-INSERT INTO "public"."produit" VALUES (5, 'Patate', 'Patate douce', 3, 116, 3, '', NULL);
-INSERT INTO "public"."produit" VALUES (27, 'RedBUll', 'Boisson energisante', 2.8, 45, 6, '8712100751370', '1746373596350-download.webp');
-INSERT INTO "public"."produit" VALUES (6, 'SDGFDF', 'é"''(-è', 12345, 240, 1, '3456789', NULL);
 INSERT INTO "public"."produit" VALUES (20, 'cocacola', 'boisson', 1.13, 9, 1, '', '1746323635439-2ac6493f-d7f6-4515-9de3-86f87b12c1ad.png');
 INSERT INTO "public"."produit" VALUES (10, 'cristaline', 'eau', 1, 7, 1, '', NULL);
-INSERT INTO "public"."produit" VALUES (21, 'kinder bueno', 'chocolat', 2, 21, 1, '', '1746332542743-5a8d4927-b245-4370-b14d-85defc5a6e37.png');
 INSERT INTO "public"."produit" VALUES (23, 'oreo', 'gateau', 2.04, 12, 1, '', '1746368571004-9d06ed7d-3586-4255-97ae-428f28d36bde.png');
 INSERT INTO "public"."produit" VALUES (24, 'coca', 'cola', 2, 4, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (28, 'Mangue', 'Alaska', 2, 0, 2, '3068320080000', '1746379395006-Capture_d_____cran_du_2025-05-04_16-22-59.png');
 INSERT INTO "public"."produit" VALUES (26, 'eau', 'vittel', 7, 99, 1, '', '1746369286692-Capture_d_____cran_du_2025-05-04_16-22-59.png');
 INSERT INTO "public"."produit" VALUES (9, 'tttt', 'tttt', 2, 2, 1, '', NULL);
-INSERT INTO "public"."produit" VALUES (8, 'QQQQQQQ', 'QQ', 2, 2, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (22, 'fraises', 'rondes', 9, 32, 2, '3068320080000', NULL);
 INSERT INTO "public"."produit" VALUES (4, 'kiwi', 'fruit', 2, 7, 2, '', NULL);
 INSERT INTO "public"."produit" VALUES (12, 'dind', 'a', 4, 4, 1, '', NULL);
@@ -454,17 +439,23 @@ CREATE TABLE "public"."utilisateurs" (
 -- Records of utilisateurs
 -- ----------------------------
 INSERT INTO "public"."utilisateurs" VALUES (5, 'aymene LAZREG', 'aymenlazreg4@gmail.com', '$2b$10$DdWyx2VQmtD8WyqRrtRyPOstBN3YuxRjaHLsvltCfx9OBMmcX434K', 'admin');
-INSERT INTO "public"."utilisateurs" VALUES (7, 'Super Admin', 'admin@admin.com', '$2b$10$TNUFukAmu97IQCm07U9aLex1QZ.4YPHLtNXMWHIj8CVFo.OkBNxB.', 'client');
-INSERT INTO "public"."utilisateurs" VALUES (6, 'Yanis Dahmouche', 'yanischkopi@gmail.com', '$2b$10$nhADOJaakECYRumd1h6RF.8L.wighIr8jaGJPXPzK/qGhLgZlxm6G', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (14, 'AZERTYUI AZERTYUIO', 'AZERTYU@gmail.com', '$2b$10$j0LphflALlfAw8Ldp0ovaevzv1Nlevlkh6b0Zzwx05Ih0babD1XYq', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (15, 'SERTDYUGI DHFJGKHL', 'qiulsdfo@gmail.com', '$2b$10$ruF96CI9QjZFBBH9NrwN0.DUeC63xkvNu7.BwAyqxCq1IJCVde7Dq', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (11, 'lou za', 'louza@yahoo.com', '$2b$10$CgzOyeuOUipwwyrpoUFIreGbV2CAnM959XQL3PEBv2cyFYJrKODVC', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (10, 'alice abd', 'alice.abd@yahoo.com', '$2b$10$lsHvAjNnw3JgPdg4Iic3z.FuVbgsM3JRiR92skFDupE9.meG7UaDm', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (9, 'fayad hassan', 'hassanfayad@gmail.com', '$2b$10$o6UbFiGsFr6ELw346YainODpIJcK.26l1zJHs.to26jwwDiSVhWaW', 'client');
-INSERT INTO "public"."utilisateurs" VALUES (8, 'abdellah dorbane', 'abdellahdorbane@gmail.com', '$2b$10$q37l5i1JU8ZWRuTJp4g0eutsmlxJbvc9GPlspVKCcK/gtc/XI81UG', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (13, 'qsdf qsdfqsd', 'amiralazreg1@gmail.com', '$2b$10$Bszr2hm91lYppsKNVsKdWO6zEZJUDOzlIOUOPqUUBuMNMfNXSPEeu', 'client');
-INSERT INTO "public"."utilisateurs" VALUES (12, 'cece drake', 'cece.drake@yahoo.com', '$2b$10$pipnoH6Tqfe.A8vYeS6CfuASGa547jyd5KGVco2euUz.15lwtgLWO', 'gestionnaire');
 INSERT INTO "public"."utilisateurs" VALUES (16, 'YREDUTIYO TDFYUGI', 'piquzdfp@qopsidfjp.oqiush', '$2b$10$bQFHgFyZy2u5huff0Xf0T.U0Q2GNznlU7Pix8nswowxQU.TVlWyL2', 'client');
+INSERT INTO "public"."utilisateurs" VALUES (17, 'lou aly', 'alylou@yahoo.fr', '$2b$10$GeAdbqlNDLg3Mx9XpmYZReu74A.jqSxvU.kxgixK58HqsZOgkj0vG', 'client');
+INSERT INTO "public"."utilisateurs" VALUES (18, 'Wiss Ben', 'benaidawissem31@gmail.com', '$2b$10$TqLTBBU/C97kRNi7zmXUi.WRqSKcZe1r7mytgCzCqOxy2420JgVUm', 'admin');
+INSERT INTO "public"."utilisateurs" VALUES (8, 'abdellah dorbane', 'abdellahdorbane@gmail.com', '$2b$10$q37l5i1JU8ZWRuTJp4g0eutsmlxJbvc9GPlspVKCcK/gtc/XI81UG', 'admin');
+INSERT INTO "public"."utilisateurs" VALUES (7, 'Super Admin', 'admin@admin.com', '$2b$10$TNUFukAmu97IQCm07U9aLex1QZ.4YPHLtNXMWHIj8CVFo.OkBNxB.', 'gestionnaire');
+INSERT INTO "public"."utilisateurs" VALUES (19, 'Abouch Iw', 'yanisdh15@gmail.com', '$2b$10$F3tod7vlo06O15Gjd09qdebapMs1sAIQkLpqAm/Rqv12mieOeh.ea', 'client');
+INSERT INTO "public"."utilisateurs" VALUES (6, 'Yanis Dahmouche', 'yanischkopi@gmail.com', '$2b$10$nhADOJaakECYRumd1h6RF.8L.wighIr8jaGJPXPzK/qGhLgZlxm6G', 'client');
+INSERT INTO "public"."utilisateurs" VALUES (21, 'sadia ameur', 'sadia.am@gmail.com', '$2b$10$Xo1nhUIJ5i5kV9O9tGTTD.XGfMzdRfvzwHy.KxmsdmX2eQGHV4fci', 'client');
+INSERT INTO "public"."utilisateurs" VALUES (22, 'Hehjd Hdhjd', 'gehej@jehe.jeh', '$2b$10$433GaSl4xmC9yz7bnbL0SuPczSaZse5LtWIi.zFN/aomFC5mb/C1S', 'client');
+INSERT INTO "public"."utilisateurs" VALUES (20, 'Utilisateur VIIII', 'AZERTY12@AZERT.AZ', '$2b$10$0eCcoiIBW5hjeeW7OtHDWuDs0nm4LPWKURVIcCUS.h7N18gmC5FhG', 'client');
+INSERT INTO "public"."utilisateurs" VALUES (12, 'cece drake', 'cece.drake@yahoo.com', '$2b$10$pipnoH6Tqfe.A8vYeS6CfuASGa547jyd5KGVco2euUz.15lwtgLWO', 'admin');
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -481,35 +472,35 @@ SELECT setval('"public"."LigneCommandeFournisseur_id_seq"', 7, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."commandes_client_id_seq"
 OWNED BY "public"."commandes_client"."id";
-SELECT setval('"public"."commandes_client_id_seq"', 90, true);
+SELECT setval('"public"."commandes_client_id_seq"', 107, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."commandes_fournisseur_id_seq"
 OWNED BY "public"."commandes_fournisseur"."id";
-SELECT setval('"public"."commandes_fournisseur_id_seq"', 47, true);
+SELECT setval('"public"."commandes_fournisseur_id_seq"', 55, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."lignes_commande_client_id_seq"
 OWNED BY "public"."lignes_commande_client"."id";
-SELECT setval('"public"."lignes_commande_client_id_seq"', 90, true);
+SELECT setval('"public"."lignes_commande_client_id_seq"', 101, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."lignes_commande_fournisseur_id_seq"
 OWNED BY "public"."lignes_commande_fournisseur"."id";
-SELECT setval('"public"."lignes_commande_fournisseur_id_seq"', 59, true);
+SELECT setval('"public"."lignes_commande_fournisseur_id_seq"', 63, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."mouvement_id_seq"
 OWNED BY "public"."mouvement"."id";
-SELECT setval('"public"."mouvement_id_seq"', 134, true);
+SELECT setval('"public"."mouvement_id_seq"', 148, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -530,29 +521,19 @@ SELECT setval('"public"."produit_id_seq1"', 7, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."produit_id_seq2"
 OWNED BY "public"."produit"."id";
-SELECT setval('"public"."produit_id_seq2"', 28, true);
+SELECT setval('"public"."produit_id_seq2"', 30, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."utilisateurs_id_seq"
 OWNED BY "public"."utilisateurs"."id";
-SELECT setval('"public"."utilisateurs_id_seq"', 16, true);
-
--- ----------------------------
--- Primary Key structure for table CartonProduit
--- ----------------------------
-ALTER TABLE "public"."CartonProduit" ADD CONSTRAINT "CartonProduit_pkey" PRIMARY KEY ("id_carton");
+SELECT setval('"public"."utilisateurs_id_seq"', 22, true);
 
 -- ----------------------------
 -- Primary Key structure for table categorie
 -- ----------------------------
 ALTER TABLE "public"."categorie" ADD CONSTRAINT "categorie_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Primary Key structure for table client
--- ----------------------------
-ALTER TABLE "public"."client" ADD CONSTRAINT "client_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Primary Key structure for table commandes_client
@@ -563,16 +544,6 @@ ALTER TABLE "public"."commandes_client" ADD CONSTRAINT "commandes_client_pkey" P
 -- Primary Key structure for table commandes_fournisseur
 -- ----------------------------
 ALTER TABLE "public"."commandes_fournisseur" ADD CONSTRAINT "commandes_fournisseur_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
--- Checks structure for table facture
--- ----------------------------
-ALTER TABLE "public"."facture" ADD CONSTRAINT "chk_status" CHECK (statut::text = ANY (ARRAY['paye'::character varying::text, 'impaye'::character varying::text]));
-
--- ----------------------------
--- Primary Key structure for table facture
--- ----------------------------
-ALTER TABLE "public"."facture" ADD CONSTRAINT "facture_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Primary Key structure for table fournisseur
@@ -595,19 +566,9 @@ ALTER TABLE "public"."lignes_commande_fournisseur" ADD CONSTRAINT "lignes_comman
 ALTER TABLE "public"."mouvement" ADD CONSTRAINT "mouvement_pkey" PRIMARY KEY ("id");
 
 -- ----------------------------
--- Checks structure for table paiement
--- ----------------------------
-ALTER TABLE "public"."paiement" ADD CONSTRAINT "chk_payement" CHECK (mode_paiement::text = ANY (ARRAY['Carte'::character varying::text, 'Especes'::character varying::text, 'Virement'::character varying::text]));
-
--- ----------------------------
--- Primary Key structure for table paiement
--- ----------------------------
-ALTER TABLE "public"."paiement" ADD CONSTRAINT "paiement_pkey" PRIMARY KEY ("id");
-
--- ----------------------------
 -- Auto increment value for produit
 -- ----------------------------
-SELECT setval('"public"."produit_id_seq2"', 28, true);
+SELECT setval('"public"."produit_id_seq2"', 30, true);
 
 -- ----------------------------
 -- Primary Key structure for table produit
@@ -646,11 +607,6 @@ ALTER TABLE "public"."lignes_commande_fournisseur" ADD CONSTRAINT "lignes_comman
 -- Foreign Keys structure for table mouvement
 -- ----------------------------
 ALTER TABLE "public"."mouvement" ADD CONSTRAINT "fk_utilisateur" FOREIGN KEY ("utilisateur_id") REFERENCES "public"."utilisateurs" ("id") ON DELETE SET NULL ON UPDATE NO ACTION;
-
--- ----------------------------
--- Foreign Keys structure for table paiement
--- ----------------------------
-ALTER TABLE "public"."paiement" ADD CONSTRAINT "facture" FOREIGN KEY ("facture") REFERENCES "public"."facture" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Keys structure for table produit

@@ -152,9 +152,7 @@ export default function Connection() {
                         <div className="form-group">
                             <div className="password-header">
                                 <label htmlFor="password">Mot de passe</label>
-                                <a href="#" className="forgot-password">
-                                    Mot de passe oublié?
-                                </a>
+                                
                             </div>
                             <div className="password-input">
                                 <input

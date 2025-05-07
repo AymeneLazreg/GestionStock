@@ -11,9 +11,8 @@ import CommandesFournisseur from "./pages/fournisseur/CommandesFournisseur";
 import HistoriqueCommandesFournisseur from "./pages/fournisseur/HistoriqueCommandesFournisseur";
 import NvCommandeFournisseur from "./pages/fournisseur/DetailsCommandeFournisseur";
 
-import Stock from "./pages/gestion/Stock";
+import Stock from "./pages/gestion/stock";
 import HistoriqueStock from "./pages/gestion/HistoriqueStock";
-import HistoriqueProduit from "./pages/gestion/HistoriqueProduit";
 import AjoutProduit from "./pages/gestion/AjoutProduit";
 import ModifierProduit from "./pages/gestion/ModifierProduit";
 
@@ -60,7 +59,6 @@ function App() {
           {/* Pages Gestion */}
           <Route path="/stock" element={<Stock />} />
           <Route path="/historique-stock" element={<HistoriqueStock />} />
-          <Route path="/historique-produit" element={<HistoriqueProduit />} />
           <Route path="/ajout-produit" element={<AjoutProduit />} />
           <Route path="/modifier-produit/:id" element={<ModifierProduit />} />
 

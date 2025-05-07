@@ -13,6 +13,12 @@ function ModifierProduit() {
   const [loading, setLoading] = useState(true); // Ajout du loading pour l'affichage du produit
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("veuillez vous connecter.");
+      navigate("/login");
+      return;
+    }
     const fetchProduit = async () => {
       try {
         const res = await fetch(`http://localhost:8832/api/produits/${id}`);
@@ -136,7 +142,7 @@ function ModifierProduit() {
           </div>
           <div className="form-buttons">
             <button type="submit" className="btn submit-btn">Modifier</button>
-            <button type="button" className="btn cancel-btn" onClick={handleCancel}>Annuler</button>
+            <button type="button" className="btn cancel-btn" style={{marginBottom : "30px"}} onClick={handleCancel}>Annuler</button>
           </div>
         </form>
         
