@@ -1,18 +1,18 @@
 /*
  Navicat Premium Dump SQL
 
- Source Server         : ws
+ Source Server         : postgre
  Source Server Type    : PostgreSQL
- Source Server Version : 150008 (150008)
- Source Host           : aws-0-eu-west-3.pooler.supabase.com:6543
- Source Catalog        : postgres
+ Source Server Version : 170003 (170003)
+ Source Host           : localhost:5432
+ Source Catalog        : projet
  Source Schema         : public
 
  Target Server Type    : PostgreSQL
- Target Server Version : 150008 (150008)
+ Target Server Version : 170003 (170003)
  File Encoding         : 65001
 
- Date: 07/05/2025 14:21:44
+ Date: 07/05/2025 15:05:38
 */
 
 
@@ -136,6 +136,17 @@ START 1
 CACHE 1;
 
 -- ----------------------------
+-- Sequence structure for produit_id_seq3
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "public"."produit_id_seq3";
+CREATE SEQUENCE "public"."produit_id_seq3" 
+INCREMENT 1
+MINVALUE  1
+MAXVALUE 2147483647
+START 1
+CACHE 1;
+
+-- ----------------------------
 -- Sequence structure for utilisateurs_id_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "public"."utilisateurs_id_seq";
@@ -200,33 +211,7 @@ CREATE TABLE "public"."commandes_client" (
 -- ----------------------------
 -- Records of commandes_client
 -- ----------------------------
-INSERT INTO "public"."commandes_client" VALUES (90, 16, '2025-05-04', 'Validée', 8);
-INSERT INTO "public"."commandes_client" VALUES (87, 5, '2025-05-04', 'Validée', 2);
-INSERT INTO "public"."commandes_client" VALUES (91, 19, '2025-05-05', 'Validée', 54.16);
-INSERT INTO "public"."commandes_client" VALUES (92, 19, '2025-05-05', 'En cours', 0);
-INSERT INTO "public"."commandes_client" VALUES (93, 20, '2025-05-06', 'Validée', 3);
-INSERT INTO "public"."commandes_client" VALUES (95, 20, '2025-05-06', 'En cours', 0);
-INSERT INTO "public"."commandes_client" VALUES (94, 20, '2025-05-06', 'En cours', 56);
-INSERT INTO "public"."commandes_client" VALUES (96, 21, '2025-05-06', 'En Attente', 0);
-INSERT INTO "public"."commandes_client" VALUES (97, 22, '2025-05-06', 'En Attente', 2);
-INSERT INTO "public"."commandes_client" VALUES (100, 21, '2025-05-06', 'En Attente', 0);
-INSERT INTO "public"."commandes_client" VALUES (99, 22, '2025-05-06', 'En Attente', 2.8);
-INSERT INTO "public"."commandes_client" VALUES (98, 21, '2025-05-06', 'Validée', 0);
-INSERT INTO "public"."commandes_client" VALUES (101, 22, '2025-05-06', 'En cours', 0);
-INSERT INTO "public"."commandes_client" VALUES (79, 6, '2025-05-04', 'En cours', 0);
-INSERT INTO "public"."commandes_client" VALUES (80, 6, '2025-05-04', 'En cours', 0);
-INSERT INTO "public"."commandes_client" VALUES (83, 8, '2025-05-04', 'Validée', 30);
-INSERT INTO "public"."commandes_client" VALUES (102, 21, '2025-05-06', 'Validée', 40);
-INSERT INTO "public"."commandes_client" VALUES (84, 8, '2025-05-04', 'Validée', 2);
-INSERT INTO "public"."commandes_client" VALUES (81, 5, '2025-05-04', 'En Attente', 0);
-INSERT INTO "public"."commandes_client" VALUES (103, 20, '2025-05-06', 'Validée', 42);
-INSERT INTO "public"."commandes_client" VALUES (104, 20, '2025-05-06', 'En cours', 0);
-INSERT INTO "public"."commandes_client" VALUES (88, 15, '2025-05-04', 'En Attente', 0);
-INSERT INTO "public"."commandes_client" VALUES (105, 20, '2025-05-06', 'En Attente', 0);
-INSERT INTO "public"."commandes_client" VALUES (85, 8, '2025-05-04', 'Validée', 9);
-INSERT INTO "public"."commandes_client" VALUES (106, 20, '2025-05-06', 'En cours', 0);
-INSERT INTO "public"."commandes_client" VALUES (89, 16, '2025-05-04', 'Validée', 6);
-INSERT INTO "public"."commandes_client" VALUES (107, 12, '2025-05-07', 'Validée', 123453);
+INSERT INTO "public"."commandes_client" VALUES (108, 6, '2025-05-07', 'Validée', 6);
 
 -- ----------------------------
 -- Table structure for commandes_fournisseur
@@ -245,10 +230,6 @@ CREATE TABLE "public"."commandes_fournisseur" (
 -- ----------------------------
 -- Records of commandes_fournisseur
 -- ----------------------------
-INSERT INTO "public"."commandes_fournisseur" VALUES (47, '2025-05-04', 'Validée', '2025-05-04 18:50:34.731+00', 300, 1);
-INSERT INTO "public"."commandes_fournisseur" VALUES (49, '2025-05-05', 'Validée', '2025-05-05 13:19:35.159+00', 10, 1);
-INSERT INTO "public"."commandes_fournisseur" VALUES (54, '2025-05-07', 'En Attente', NULL, 1, 1);
-INSERT INTO "public"."commandes_fournisseur" VALUES (55, '2025-05-07', 'En Attente', NULL, 0, 1);
 
 -- ----------------------------
 -- Table structure for fournisseur
@@ -286,23 +267,7 @@ CREATE TABLE "public"."lignes_commande_client" (
 -- ----------------------------
 -- Records of lignes_commande_client
 -- ----------------------------
-INSERT INTO "public"."lignes_commande_client" VALUES (85, 83, 28, 15, 2, '2025-05-04 17:24:21.27', '2025-05-04 17:24:21.27');
-INSERT INTO "public"."lignes_commande_client" VALUES (86, 84, 9, 1, 2, '2025-05-04 17:26:52.019', '2025-05-04 17:26:52.019');
-INSERT INTO "public"."lignes_commande_client" VALUES (87, 85, 22, 1, 9, '2025-05-04 17:28:08.322', '2025-05-04 17:28:08.322');
-INSERT INTO "public"."lignes_commande_client" VALUES (88, 87, 8, 1, 2, '2025-05-04 17:34:06.234', '2025-05-04 17:34:06.234');
-INSERT INTO "public"."lignes_commande_client" VALUES (89, 89, 4, 3, 2, '2025-05-04 18:32:23.836', '2025-05-04 18:32:23.836');
-INSERT INTO "public"."lignes_commande_client" VALUES (90, 90, 12, 2, 4, '2025-05-04 18:36:43.631', '2025-05-04 18:36:43.631');
-INSERT INTO "public"."lignes_commande_client" VALUES (91, 91, 18, 9, 1.04, '2025-05-05 16:39:43.635', '2025-05-05 16:39:43.635');
-INSERT INTO "public"."lignes_commande_client" VALUES (92, 91, 27, 1, 2.8, '2025-05-05 16:39:51.352', '2025-05-05 16:39:51.352');
-INSERT INTO "public"."lignes_commande_client" VALUES (93, 91, 21, 21, 2, '2025-05-05 16:40:08.789', '2025-05-05 16:40:08.789');
-INSERT INTO "public"."lignes_commande_client" VALUES (94, 93, 14, 3, 1, '2025-05-06 13:17:06.666', '2025-05-06 13:17:06.666');
-INSERT INTO "public"."lignes_commande_client" VALUES (95, 94, 29, 1, 56, '2025-05-06 15:23:52.709', '2025-05-06 15:23:52.709');
-INSERT INTO "public"."lignes_commande_client" VALUES (96, 97, 16, 1, 2, '2025-05-06 16:05:31.132', '2025-05-06 16:05:31.132');
-INSERT INTO "public"."lignes_commande_client" VALUES (97, 99, 27, 1, 2.8, '2025-05-06 16:06:13.051', '2025-05-06 16:06:13.051');
-INSERT INTO "public"."lignes_commande_client" VALUES (98, 102, 30, 1, 40, '2025-05-06 16:11:02.32', '2025-05-06 16:11:02.32');
-INSERT INTO "public"."lignes_commande_client" VALUES (99, 103, 27, 15, 2.8, '2025-05-06 16:38:15.919', '2025-05-06 16:38:15.919');
-INSERT INTO "public"."lignes_commande_client" VALUES (100, 107, 5, 1, 3, '2025-05-07 12:06:25.251', '2025-05-07 12:06:25.251');
-INSERT INTO "public"."lignes_commande_client" VALUES (101, 107, 6, 10, 12345, '2025-05-07 12:06:31.092', '2025-05-07 12:06:31.092');
+INSERT INTO "public"."lignes_commande_client" VALUES (102, 108, 5, 5, 1.2, '2025-05-07 13:04:06.573', '2025-05-07 13:04:06.573');
 
 -- ----------------------------
 -- Table structure for lignes_commande_fournisseur
@@ -320,11 +285,6 @@ CREATE TABLE "public"."lignes_commande_fournisseur" (
 -- ----------------------------
 -- Records of lignes_commande_fournisseur
 -- ----------------------------
-INSERT INTO "public"."lignes_commande_fournisseur" VALUES (61, 14, 10, 1, 49);
-INSERT INTO "public"."lignes_commande_fournisseur" VALUES (62, 14, 10, 1, 49);
-INSERT INTO "public"."lignes_commande_fournisseur" VALUES (63, 15, 1, 1, 54);
-INSERT INTO "public"."lignes_commande_fournisseur" VALUES (58, 17, 100, 3, 47);
-INSERT INTO "public"."lignes_commande_fournisseur" VALUES (59, 17, 100, 3, 47);
 
 -- ----------------------------
 -- Table structure for mouvement
@@ -364,6 +324,8 @@ INSERT INTO "public"."mouvement" VALUES (146, 'RedBUll', 'Sortie', 15, '2025-05-
 INSERT INTO "public"."mouvement" VALUES (147, 'Patate', 'Sortie', 1, '2025-05-07', 12);
 INSERT INTO "public"."mouvement" VALUES (148, 'SDGFDF', 'Sortie', 10, '2025-05-07', 12);
 INSERT INTO "public"."mouvement" VALUES (22, 'fraises', 'Sortie', 1, '2025-05-04', 8);
+INSERT INTO "public"."mouvement" VALUES (149, 'VItel', 'Entrée', 20, '2025-05-07', 5);
+INSERT INTO "public"."mouvement" VALUES (150, 'VItel', 'Sortie', 5, '2025-05-07', 6);
 
 -- ----------------------------
 -- Table structure for produit
@@ -401,11 +363,8 @@ INSERT INTO "public"."produit" VALUES (30, 'Coiffeuse', 'Coiffeuse', 40, 9, 14, 
 INSERT INTO "public"."produit" VALUES (27, 'RedBUll', 'Boisson energisante', 2.8, 29, 6, '8712100751370', '1746373596350-download.webp');
 INSERT INTO "public"."produit" VALUES (11, 'volvic', 'eau', 1, 0, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (99, 'Chips de pomme de terre', 'Pommes de terre, huile de tournesol, sel', 1.99, 50, 23, '1234567890123', 'https://images.openfoodfacts.org/images/products/123/456/789/0123/front_fr.400.jpg');
-INSERT INTO "public"."produit" VALUES (5, 'Patate', 'Patate douce', 3, 115, 3, '', NULL);
 INSERT INTO "public"."produit" VALUES (6, 'SDGFDF', 'é"''(-è', 12345, 230, 1, '3456789', NULL);
 INSERT INTO "public"."produit" VALUES (1, 'mayo', 'sauce', 2, 0, 1, '4000177023556', NULL);
-INSERT INTO "public"."produit" VALUES (3, 'coco', 'fruits', 2, 0, 2, '', NULL);
-INSERT INTO "public"."produit" VALUES (2, 'lipton', 'boisson', 1.12, 7, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (19, 'popcorn', 'tatat', 2, 0, 1, '', '1746322924124-ex4_3.png');
 INSERT INTO "public"."produit" VALUES (13, 'prince', 'gateaux', 2.03, 15, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (16, 'bimo', 'gateau', 2, 11, 1, '', NULL);
@@ -419,8 +378,12 @@ INSERT INTO "public"."produit" VALUES (28, 'Mangue', 'Alaska', 2, 0, 2, '3068320
 INSERT INTO "public"."produit" VALUES (26, 'eau', 'vittel', 7, 99, 1, '', '1746369286692-Capture_d_____cran_du_2025-05-04_16-22-59.png');
 INSERT INTO "public"."produit" VALUES (9, 'tttt', 'tttt', 2, 2, 1, '', NULL);
 INSERT INTO "public"."produit" VALUES (22, 'fraises', 'rondes', 9, 32, 2, '3068320080000', NULL);
-INSERT INTO "public"."produit" VALUES (4, 'kiwi', 'fruit', 2, 7, 2, '', NULL);
 INSERT INTO "public"."produit" VALUES (12, 'dind', 'a', 4, 4, 1, '', NULL);
+INSERT INTO "public"."produit" VALUES (4567, 'lipton', 'boisson', 1.12, 7, 1, '', NULL);
+INSERT INTO "public"."produit" VALUES (456, 'coco', 'fruits', 2, 0, 2, '', NULL);
+INSERT INTO "public"."produit" VALUES (865, 'kiwi', 'fruit', 2, 7, 2, '', NULL);
+INSERT INTO "public"."produit" VALUES (85, 'Patate', 'Patate douce', 3, 115, 3, '', NULL);
+INSERT INTO "public"."produit" VALUES (5, 'VItel', 'eau minerale', 1.2, 15, 6, '3179732326911', '1746622992916-download.jpg');
 
 -- ----------------------------
 -- Table structure for utilisateurs
@@ -438,7 +401,6 @@ CREATE TABLE "public"."utilisateurs" (
 -- ----------------------------
 -- Records of utilisateurs
 -- ----------------------------
-INSERT INTO "public"."utilisateurs" VALUES (5, 'aymene LAZREG', 'aymenlazreg4@gmail.com', '$2b$10$DdWyx2VQmtD8WyqRrtRyPOstBN3YuxRjaHLsvltCfx9OBMmcX434K', 'admin');
 INSERT INTO "public"."utilisateurs" VALUES (14, 'AZERTYUI AZERTYUIO', 'AZERTYU@gmail.com', '$2b$10$j0LphflALlfAw8Ldp0ovaevzv1Nlevlkh6b0Zzwx05Ih0babD1XYq', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (15, 'SERTDYUGI DHFJGKHL', 'qiulsdfo@gmail.com', '$2b$10$ruF96CI9QjZFBBH9NrwN0.DUeC63xkvNu7.BwAyqxCq1IJCVde7Dq', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (11, 'lou za', 'louza@yahoo.com', '$2b$10$CgzOyeuOUipwwyrpoUFIreGbV2CAnM959XQL3PEBv2cyFYJrKODVC', 'client');
@@ -456,6 +418,7 @@ INSERT INTO "public"."utilisateurs" VALUES (21, 'sadia ameur', 'sadia.am@gmail.c
 INSERT INTO "public"."utilisateurs" VALUES (22, 'Hehjd Hdhjd', 'gehej@jehe.jeh', '$2b$10$433GaSl4xmC9yz7bnbL0SuPczSaZse5LtWIi.zFN/aomFC5mb/C1S', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (20, 'Utilisateur VIIII', 'AZERTY12@AZERT.AZ', '$2b$10$0eCcoiIBW5hjeeW7OtHDWuDs0nm4LPWKURVIcCUS.h7N18gmC5FhG', 'client');
 INSERT INTO "public"."utilisateurs" VALUES (12, 'cece drake', 'cece.drake@yahoo.com', '$2b$10$pipnoH6Tqfe.A8vYeS6CfuASGa547jyd5KGVco2euUz.15lwtgLWO', 'admin');
+INSERT INTO "public"."utilisateurs" VALUES (5, 'aymene LAZREH', 'aymenlazreg4@gmail.com', '$2b$10$DdWyx2VQmtD8WyqRrtRyPOstBN3YuxRjaHLsvltCfx9OBMmcX434K', 'admin');
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -472,7 +435,7 @@ SELECT setval('"public"."LigneCommandeFournisseur_id_seq"', 7, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."commandes_client_id_seq"
 OWNED BY "public"."commandes_client"."id";
-SELECT setval('"public"."commandes_client_id_seq"', 107, true);
+SELECT setval('"public"."commandes_client_id_seq"', 108, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -486,7 +449,7 @@ SELECT setval('"public"."commandes_fournisseur_id_seq"', 55, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."lignes_commande_client_id_seq"
 OWNED BY "public"."lignes_commande_client"."id";
-SELECT setval('"public"."lignes_commande_client_id_seq"', 101, true);
+SELECT setval('"public"."lignes_commande_client_id_seq"', 102, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -500,7 +463,7 @@ SELECT setval('"public"."lignes_commande_fournisseur_id_seq"', 63, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."mouvement_id_seq"
 OWNED BY "public"."mouvement"."id";
-SELECT setval('"public"."mouvement_id_seq"', 148, true);
+SELECT setval('"public"."mouvement_id_seq"', 150, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -522,6 +485,13 @@ SELECT setval('"public"."produit_id_seq1"', 7, true);
 ALTER SEQUENCE "public"."produit_id_seq2"
 OWNED BY "public"."produit"."id";
 SELECT setval('"public"."produit_id_seq2"', 30, true);
+
+-- ----------------------------
+-- Alter sequences owned by
+-- ----------------------------
+ALTER SEQUENCE "public"."produit_id_seq3"
+OWNED BY "public"."produit"."id";
+SELECT setval('"public"."produit_id_seq3"', 5, true);
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -568,7 +538,7 @@ ALTER TABLE "public"."mouvement" ADD CONSTRAINT "mouvement_pkey" PRIMARY KEY ("i
 -- ----------------------------
 -- Auto increment value for produit
 -- ----------------------------
-SELECT setval('"public"."produit_id_seq2"', 30, true);
+SELECT setval('"public"."produit_id_seq3"', 5, true);
 
 -- ----------------------------
 -- Primary Key structure for table produit

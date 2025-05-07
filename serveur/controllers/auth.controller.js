@@ -59,7 +59,6 @@ export const login = async (req, res) => {
     const token = jwt.sign(
       { id: user.id, role: user.role },     // ← on passe aussi le rôle
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
     );    console.log('utilisateur connecté : ', user.nom);
     // Envoi de la réponse  
 
