@@ -43,8 +43,6 @@ app.use('/api/commandes-fournisseur', commandeFournisseurRoutes);
 app.use('/api/lignes-commande-fournisseur', ligneCommandeFournisseurRoutes);
 app.use("/uploads", express.static(path.resolve("uploads")));
 app.use('/api/statistiques', statistiquesRoutes);
-
-
 app.use('/api/commandes-client', commandeClientRoutes);
 app.use('/api/lignes-commande-client', ligneCommandeClientRoutes);
 

@@ -14,29 +14,21 @@ export default function Connection() {
 
     // Fonction pour gérer la connexion
     const handleLogin = async (e) => {
-        e.preventDefault();  // Empêche la soumission par défaut du formulaire
+        e.preventDefault(); 
         console.log("Login with:", { email, password });
-
         try {
-            // Envoi de la requête POST avec les bonnes données
             const response = await fetch('http://localhost:8832/api/auth/login', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: {'Content-Type': 'application/json',},
                 body: JSON.stringify({
-                    email: email, // Utilisation du nom de la variable correctement
-                    password: password, // Changer 'mdp' par 'password' si nécessaire
+                    email: email, 
+                    password: password, 
                 }),
             });
-
             const data = await response.json();
-
             if (response.ok) {
                 console.log('Connexion réussie', data);
                 localStorage.setItem('token', data.token); // Sauvegarde du token
-
-                // 🔓 Décodage du token pour récupérer l'ID
                 const token = localStorage.getItem("token");
                 if (!token) throw new Error("Token manquant");
                 const payloadBase64 = token.split('.')[1];
@@ -45,13 +37,9 @@ export default function Connection() {
                 console.log("Rôle utilisateur :", userRole);
                 if (userRole === "admin" || userRole === "gestionnaire") {
                     navigate("/accueil-gestionnaire");  // Redirection après connexion réussie
-                }
-                else {
+                }else {
                     navigate("/commandes-client");  // Redirection après connexion réussie
                 }
-
-
-
             } else {
                 const errorMessage = data.message || "Une erreur s'est produite lors de la connexion.";
                 setErrorMessage(errorMessage);

@@ -84,8 +84,6 @@ export const getCommandesClient = async (req, res) => {
         }]
       }]
     });
-    
-
     res.status(200).json(commandes);
   } catch (err) {
     console.error("❌ Erreur récupération commandes globales :", err);

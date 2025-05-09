@@ -43,13 +43,11 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    
     const user = await User.findOne({ where: { email } });
     if (!user) {
       console.log('Utilisateur non trouvé');
       return res.status(400).json({ message: "Email ou mot de passe incorrect." });
     }
-
     const isPasswordValid = bcrypt.compareSync(password, user.mdp);
     if (!isPasswordValid) {
       console.log('Mot de passe incorrect');
@@ -57,11 +55,11 @@ export const login = async (req, res) => {
     }
     // Génération du token JWT
     const token = jwt.sign(
-      { id: user.id, role: user.role },     // ← on passe aussi le rôle
+      { id: user.id, role: user.role },
       process.env.JWT_SECRET,
     );    console.log('utilisateur connecté : ', user.nom);
-    // Envoi de la réponse  
 
+    // Envoi de la réponse  
     return res.json({ token });
   } catch (error) {
     console.error('Erreur dans la route login :', error);

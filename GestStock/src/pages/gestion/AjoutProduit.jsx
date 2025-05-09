@@ -29,6 +29,8 @@ function AjoutProduit() {
       navigate("/login");
       return;
     }
+
+
     const fetchCategories = async () => {
       try {
         const res = await fetch("http://localhost:8832/api/categories");
@@ -62,7 +64,6 @@ function AjoutProduit() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData();
     formData.append("nom", produit.nom);
     formData.append("description", produit.description);
@@ -71,7 +72,6 @@ function AjoutProduit() {
     formData.append("categorie", produit.categorie);
     formData.append("codebar", produit.codebar);
     if (imageFile) formData.append("image", imageFile);
-
     try {
       const res = await fetch("http://localhost:8832/api/produits", {
         method: "POST",
@@ -80,9 +80,7 @@ function AjoutProduit() {
         },
         body: formData,
       });
-
       if (!res.ok) throw new Error("Erreur ajout produit");
-
       addNotification("✅ Produit ajouté avec succès !");
       navigate("/stock");
     } catch (err) {

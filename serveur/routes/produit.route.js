@@ -65,7 +65,7 @@ router.get("/stats", async (req, res) => {
   try {
     const produits = await Produit.findAll();
 
-    const stockMaxTotal = 1000;
+    const stockMaxTotal = 10000;
     const quantiteTotale = produits.reduce((acc, p) => acc + p.quantite_stock, 0);
     const remplissage = Math.round((quantiteTotale / stockMaxTotal) * 100);
 
