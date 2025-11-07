@@ -1,8 +1,3 @@
-Parfait ! Je peux te générer un `README.md` pour **GestionStock** dans exactement **le même style et la même structure** que ton exemple `SymbolRecognizer`. Voici un brouillon adapté à ton projet :
-
----
-
-```markdown
 # GestionStock – Application de gestion de stock
 
 Application web permettant de gérer des produits, catégories et utilisateurs dans un stock, avec suivi de l’inventaire et gestion des profils utilisateurs.
@@ -17,26 +12,23 @@ Application web permettant de gérer des produits, catégories et utilisateurs d
 
 ### Installation
 1. Clonez le dépôt :  
-```
-
-git clone [https://github.com/AymeneLazreg/GestionStock.git](https://github.com/AymeneLazreg/GestionStock.git)
+git clone https://github.com/AymeneLazreg/GestionStock.git
 cd GestionStock
 
-```
+bash
+Copier le code
 2. Installez les dépendances du serveur :  
-```
-
 cd serveur
 npm install
 
-```
+arduino
+Copier le code
 3. Installez les dépendances du front-end :  
-```
-
 cd ../GestStock
 npm install
 
-```
+markdown
+Copier le code
 
 ### Configuration de la base de données
 - Importez le fichier `bdd.sql` dans votre SGBD préféré.  
@@ -44,19 +36,17 @@ npm install
 
 ### Lancement de l’application
 1. Démarrez le serveur :  
-```
-
 cd serveur
 npm start
 
-```
+kotlin
+Copier le code
 2. Lancez l’interface front-end :  
-```
-
 cd ../GestStock
 npm run dev
 
-```
+markdown
+Copier le code
 3. Ouvrez l’application dans votre navigateur à l’adresse indiquée (ex : `http://localhost:3000`).
 
 ## Utilisation
@@ -82,16 +72,15 @@ npm run dev
 
 ## Structure du projet
 
-```
-
 GestionStock/
-├─ GestStock/             ← Front-end
-├─ serveur/               ← Back-end / serveur
+├─ GestStock/ ← Front-end
+├─ serveur/ ← Back-end / serveur
 ├─ .gitignore
-├─ README.md              ← Ce fichier
-├─ bdd.sql                ← Script base de données
+├─ README.md ← Ce fichier
+├─ bdd.sql ← Script base de données
 
-```
+markdown
+Copier le code
 
 ## Technologies
 
@@ -106,15 +95,3 @@ GestionStock/
 - Aymene LAZREG  
 - Projet académique – Gestion de stock  
 - Université de Montpellier – Faculté des Sciences
-```
-
----
-
-Si tu veux, je peux maintenant **améliorer ce README** avec :
-
-* Badges GitHub (license, build, npm version…)
-* Screenshots ou GIF d’utilisation
-* Exemple de commandes ou workflow complet
-* Conseils pour le déploiement local ou serveur
-
-Veux‑tu que je fasse cette version enrichie ?
