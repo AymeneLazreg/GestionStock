@@ -12,8 +12,8 @@ Application web permettant de gérer des produits, catégories et utilisateurs d
 
 ### Installation
 1. Clonez le dépôt :  
-git clone https://github.com/AymeneLazreg/GestionStock.git
-cd GestionStock
+> git clone https://github.com/AymeneLazreg/GestionStock.git
+> cd GestionStock
 
 bash
 Copier le code
