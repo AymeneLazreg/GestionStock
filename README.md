@@ -23,14 +23,12 @@ Application web permettant de gérer des produits, catégories et utilisateurs d
 > npm install
 > ```
 
-arduino
-Copier le code
-3. Installez les dépendances du front-end :  
-cd ../GestStock
-npm install
 
-markdown
-Copier le code
+3. Installez les dépendances du front-end : 
+> ``` 
+> cd ../GestStock
+> npm install
+> ```
 
 ### Configuration de la base de données
 - Importez le fichier `bdd.sql` dans votre SGBD préféré.  
@@ -38,17 +36,17 @@ Copier le code
 
 ### Lancement de l’application
 1. Démarrez le serveur :  
-cd serveur
-npm start
+> ```
+> cd serveur
+> npm start
+> ```
 
-kotlin
-Copier le code
 2. Lancez l’interface front-end :  
-cd ../GestStock
-npm run dev
+> ```
+> cd ../GestStock
+> npm run dev
+> ```
 
-markdown
-Copier le code
 3. Ouvrez l’application dans votre navigateur à l’adresse indiquée (ex : `http://localhost:3000`).
 
 ## Utilisation
@@ -72,17 +70,6 @@ Copier le code
 - Recherche et filtrage par catégorie ou nom  
 - Historique des ajouts et modifications (si implémenté)
 
-## Structure du projet
-
-GestionStock/
-├─ GestStock/ ← Front-end
-├─ serveur/ ← Back-end / serveur
-├─ .gitignore
-├─ README.md ← Ce fichier
-├─ bdd.sql ← Script base de données
-
-markdown
-Copier le code
 
 ## Technologies
 
@@ -90,10 +77,14 @@ Copier le code
 - HTML & CSS  
 - Node.js (Express pour le serveur)  
 - Base de données SQL (MySQL/PostgreSQL/SQLite)  
-- Framework front-end (ex : React / Vanilla JS selon implémentation)
+- Framework front-end (REACT)
 
 ## Auteur
 
-- Aymene LAZREG  
-- Projet académique – Gestion de stock  
+- Aymene LAZREG | A.Dorbane | F.Hassan | T.Louiza | B.Wissem
+- Projet académique Licence Informatique – Gestion de stock  
 - Université de Montpellier – Faculté des Sciences
+
+## Remarque sur l'utilisation d'IA
+
+Certaines parties de ce projet ont été générées ou assistées par des outils d'intelligence artificielle (IA), notamment pour la rédaction du code, la documentation et les suggestions d'amélioration. L'IA a servi comme support et toutes les décisions finales ont été validées par les auteurs.
