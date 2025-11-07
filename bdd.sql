@@ -272,7 +272,7 @@ INSERT INTO "public"."lignes_commande_client" VALUES (103, 109, 1, 4, 2.5, '2025
 INSERT INTO "public"."lignes_commande_client" VALUES (104, 109, 4, 2, 2.95, '2025-05-09 12:58:28.565', '2025-05-09 12:58:28.565');
 INSERT INTO "public"."lignes_commande_client" VALUES (105, 109, 19, 1, 4.9, '2025-05-09 12:58:32.327', '2025-05-09 12:58:32.327');
 INSERT INTO "public"."lignes_commande_client" VALUES (106, 109, 30, 1, 2.5, '2025-05-09 12:58:37.065', '2025-05-09 12:58:37.065');
-INSERT INTO "public"."lignes_commande_client" VALUES (107, 109, 9, 1, 7.9, '2025-05-09 12:58:40.942', '2025-05-09 12:58:40.942');
+INSERT INTO "public"."lignes_commande_client" VALUES (107, 109, 9, 1, 7.9, '2025-05-09 12:58:41.942', '2025-05-09 12:58:40.942');
 INSERT INTO "public"."lignes_commande_client" VALUES (108, 109, 15, 6, 0.8, '2025-05-09 12:58:48.439', '2025-05-09 12:58:48.439');
 
 -- ----------------------------
