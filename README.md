@@ -12,14 +12,16 @@ Application web permettant de gérer des produits, catégories et utilisateurs d
 
 ### Installation
 1. Clonez le dépôt :  
+> ```
 > git clone https://github.com/AymeneLazreg/GestionStock.git
 > cd GestionStock
+> ```
 
-bash
-Copier le code
 2. Installez les dépendances du serveur :  
-cd serveur
-npm install
+> ```
+> cd serveur
+> npm install
+> ```
 
 arduino
 Copier le code
